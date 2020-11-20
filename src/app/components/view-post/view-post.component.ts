@@ -28,12 +28,12 @@ export class ViewPostComponent implements OnInit {
 
   ngOnInit () {
     this.cookieUsername = this.cookie.get("username");
-    this.posts.getPostByID(this.postID).subscribe((data) => {
+    this.posts.getPostByID(this.postID).subscribe((data: any) => {
       this.postTitle = data.data.title;
       this.postBody = data.data.body;
       console.log(this.postTitle);
     })
-    this.posts.getCommentsByPostID(this.postID).subscribe((data) => {
+    this.posts.getCommentsByPostID(this.postID).subscribe((data: any) => {
       this.commentObj = data.data;
       console.log("comment data ", this.commentObj);
     })
@@ -46,7 +46,7 @@ export class ViewPostComponent implements OnInit {
 
   checkExistingUsers(item, test) {
     console.log(test.value, "test")
-    this.posts.getUsers().subscribe((data) => {
+    this.posts.getUsers().subscribe((data: any) => {
       this.usersList= data.data;
       for(let result of this.usersList){
         if(item.value == result.name) {
