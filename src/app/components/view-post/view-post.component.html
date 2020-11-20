@@ -1,0 +1,21 @@
+<div class="mainBody">
+    <h2>Title </h2> 
+    <h3>{{postTitle}} </h3>
+    <h2>Post </h2>
+    <h3>{{postBody}} </h3>
+
+    <h2>User Comments</h2>
+    <h3 *ngFor="let item of commentObj">
+        {{item.name}} : {{item.body}} 
+    </h3>
+    <div *ngIf="isNewComment" id="newComment">
+    <h3> {{cookieUsername}} : {{commentValue}} </h3>
+    </div>
+
+    <button (click)="addComments()" class="button">Add Comments</button>
+    <div *ngIf="isShown" id="divshow" >
+        <input type="text" name="name" placeholder="Enter Username" value = {{cookieUsername}} #username><br>
+        <input type="text" name="comments" placeholder="Enter Comments" #comments > <br>
+        <button (click)="checkExistingUsers(username, comments)" class="button"> <span> Add </span></button>
+    </div>
+</div>

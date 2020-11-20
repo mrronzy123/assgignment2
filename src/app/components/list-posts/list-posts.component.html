@@ -1,0 +1,12 @@
+<div class="mainBody">
+  <h1> Posts </h1>
+  
+  <div class="PostList">
+    <h4 *ngFor="let item of postTitle | slice:start:end">
+      Post Title : {{item.title}}
+      <br>
+      Post Body : {{item.body | slice:0:120}}... <a [routerLink] = "['/post/' + item.id]"> Read More </a>
+    </h4> 
+    <button (click)="loadMore()" class="button"><span>Load More Posts</span></button>
+  </div>
+</div>
