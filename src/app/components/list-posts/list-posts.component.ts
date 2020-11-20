@@ -21,7 +21,7 @@ export class ListPostsComponent implements OnInit {
   }
 
   ngOnInit () {
-    this.posts.getPosts().subscribe((data) => {
+    this.posts.getPosts().subscribe((data: any) => {
       this.postTitle = data.data;
       console.log(this.postTitle);
     })
@@ -30,7 +30,7 @@ export class ListPostsComponent implements OnInit {
   loadMore() {
     this.start = 10;
     this.end = 20;
-    this.posts.getPosts().subscribe((data) => {
+    this.posts.getPosts().subscribe((data: any) => {
       this.postTitle = data.data;
       console.log(this.postTitle);
     })
